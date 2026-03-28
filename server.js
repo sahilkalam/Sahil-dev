@@ -20,15 +20,9 @@ app.get('/contact', (req, res) => {
 
 // 404 Catch-All Handler
 // Note: This MUST be placed AFTER all your valid routes!
-app.use((req, res) => {
-    // Sets the HTTP status code to 404 and sends a response
-    res.status(404).send(`
-        <div style="text-align: center; font-family: sans-serif; margin-top: 100px;">
-            <h1 style="font-size: 3rem; color: #111827;">404</h1>
-            <p style="font-size: 1.25rem; color: #4B5563;">Oops! Page not found.</p>
-            <a href="/" style="color: #3b82f6; text-decoration: none; margin-top: 20px; display: inline-block;">Go back home</a>
-        </div>
-    `);
+app.use((req ,res)=> {
+    res.status(404).sendFile(path.join(__dirname, '404.html'))
+});
     
     // Alternative: If you want to use a dedicated HTML file for the 404 page, use this instead:
     // res.status(404).sendFile(path.join(__dirname, '404.html'));
