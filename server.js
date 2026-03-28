@@ -20,12 +20,8 @@ app.get('/contact', (req, res) => {
 
 // 404 Catch-All Handler
 // Note: This MUST be placed AFTER all your valid routes!
-app.use((req ,res)=> {
-    res.status(404).sendFile(path.join(__dirname, '404.html'))
-});
-    
-    // Alternative: If you want to use a dedicated HTML file for the 404 page, use this instead:
-    // res.status(404).sendFile(path.join(__dirname, '404.html'));
+app.use((req, res) => {
+    res.status(404).sendFile(path.join(__dirname, '404.html'));
 });
 
 // Start the server
